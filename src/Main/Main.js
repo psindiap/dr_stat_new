@@ -14,12 +14,6 @@ function Main() {
     sbp_cat: ''
   });
 
-  const handleInputChange = event => {
-    setInputs({
-      ...inputs,
-      [event.target.name]: event.target.value
-    });
-  };
 
   const [result, setResult] = useState(null);
 
@@ -159,23 +153,23 @@ function Main() {
   };
 
   return (
-    <div className='flex flex-col justify-center items-center font-mono'>
-        <h1 class="flex mb-4 text-3xl font-extrabold text-gray-900 dark:text-white md:text-3xl lg:text-3xl" style={{padding: "10px"}}><span class="break-all flex text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">DR DETECTION</span></h1>
+    <div className='bg-slate-300 flex flex-col justify-center items-center font-mono'>
+        <h1 class="flex mb-4 text-3xl font-extrabold text-gray-900 dark:text-white md:text-3xl lg:text-3xl" style={{padding: "10px"}}><span class="break-all flex text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-600">DR DETECTION</span></h1>
 
 
         <div className='flex flex-col w-full space-y-2' style={{padding:10, alignItems:'center'  }}>
 
 
         <div className='flex w-5/6 space-x-1  '>
-            <div class='break-all shadow rounded-lg appearance-none w-1/3 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'>Age:</div>
-            <input class="break-all shadow rounded-lg appearance-none border rounded w-2/3 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline " id="age" type="text" placeholder="Age must be between 0-100 years" value={inputs.age} onChange={(e) => {
+            <div class='break-all shadow rounded-lg appearance-none w-1/3 py-2 px-3 text-black-700 leading-tight focus:outline-none focus:shadow-outline'>Age:</div>
+            <input class="break-all shadow rounded-lg appearance-none border rounded w-2/3 py-2 px-3 text-black-700 leading-tight focus:outline-none focus:shadow-outline " id="age" type="text" placeholder="Age must be between 0-100 years" value={inputs.age} onChange={(e) => {
                 e.preventDefault();
                 setInputs({...inputs, age: e.target.value});
             }}/>
         </div>
 
         <div className='flex w-5/6 space-x-1'>
-        <label for="gender" class="break-all flex shadow rounded-lg appearance-none w-1/3 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">Gender:</label>
+        <label for="gender" class="break-all flex shadow rounded-lg appearance-none w-1/3 py-2 px-3 text-black-700 leading-tight focus:outline-none focus:shadow-outline">Gender:</label>
         <select id="gender" class="break-all flex border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-2/3 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
         value={inputs.gender} 
 
@@ -191,7 +185,7 @@ function Main() {
         </div>
 
         <div className='flex w-5/6 space-x-1'>
-        <label for="dm_dur" class="break-all flex shadow rounded-lg appearance-none w-1/3 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">DM Duration Category:</label>
+        <label for="dm_dur" class="break-all flex shadow rounded-lg appearance-none w-1/3 py-2 px-3 text-black-700 leading-tight focus:outline-none focus:shadow-outline">DM Duration Category:</label>
         <select id="dm_dur" class="break-all flex border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-2/3 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"   value={inputs.dm_dur_cat} 
 
 onChange={(e) => {
@@ -206,7 +200,7 @@ onChange={(e) => {
         </div>
 
         <div className='flex w-5/6 space-x-1'>
-        <label for="Insulin" class="break-all flex shadow rounded-lg appearance-none w-1/3 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">Insulin Treatment:</label>
+        <label for="Insulin" class="break-all flex shadow rounded-lg appearance-none w-1/3 py-2 px-3 text-black-700 leading-tight focus:outline-none focus:shadow-outline">Insulin Treatment:</label>
         <select id="Insulin" class="break-all flex border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-2/3 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value={inputs.insulin} 
 
 onChange={(e) => {
@@ -220,7 +214,7 @@ onChange={(e) => {
         </div>
 
         <div className='flex w-5/6 space-x-1'>
-        <label for="HT" class="break-all flex shadow rounded-lg appearance-none w-1/3 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">Hypertension History:</label>
+        <label for="HT" class="break-all flex shadow rounded-lg appearance-none w-1/3 py-2 px-3 text-black-700 leading-tight focus:outline-none focus:shadow-outline">Hypertension History:</label>
         <select id="HT" class="break-all flex border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-2/3 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 " value={inputs.htn} 
 
 onChange={(e) => {
@@ -234,8 +228,8 @@ onChange={(e) => {
         </div>
 
         <div className='flex w-5/6 space-x-1'>
-            <div class='break-all flex shadow rounded-lg appearance-none w-1/3 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'>BMI:</div>
-            <input class="break-all flex shadow rounded-lg appearance-none border rounded w-2/3 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="bmi" type="text" placeholder="BMI must be between 10-60" value={inputs.bmi} 
+            <div class='break-all flex shadow rounded-lg appearance-none w-1/3 py-2 px-3 text-black-700 leading-tight focus:outline-none focus:shadow-outline'>BMI:</div>
+            <input class="break-all flex shadow rounded-lg appearance-none border rounded w-2/3 py-2 px-3 text-black-700 leading-tight focus:outline-none focus:shadow-outline" id="bmi" type="text" placeholder="BMI must be between 10-60" value={inputs.bmi} 
 
 onChange={(e) => {
     e.preventDefault();
@@ -244,7 +238,7 @@ onChange={(e) => {
         </div>
 
         <div className='flex w-5/6 space-x-1'>
-        <label for="ghs" class="break-all flex shadow rounded-lg appearance-none w-1/3 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">Glycosylated Haemoglobin Status:</label>
+        <label for="ghs" class="break-all flex shadow rounded-lg appearance-none w-1/3 py-2 px-3 text-black-700 leading-tight focus:outline-none focus:shadow-outline">Glycosylated Haemoglobin Status:</label>
         <select id="ghs" class="break-all flex border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-2/3 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value={inputs.hba1c} 
 
 onChange={(e) => {
@@ -260,7 +254,7 @@ onChange={(e) => {
 
 
         <div className='flex w-5/6 space-x-1'>
-        <label for="fbs" class="break-all flex shadow rounded-lg appearance-none w-1/3 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">Fasting Plasma Glucose:</label>
+        <label for="fbs" class="break-all flex shadow rounded-lg appearance-none w-1/3 py-2 px-3 text-black-700 leading-tight focus:outline-none focus:shadow-outline">Fasting Plasma Glucose:</label>
         <select id="fbs" class="break-all flex border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-2/3 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value={inputs.fbs_cat_new} 
 
 onChange={(e) => {
@@ -276,7 +270,7 @@ onChange={(e) => {
 
 
         <div className='flex w-5/6 space-x-1'>
-        <label for="sbp" class="break-all flex shadow rounded-lg appearance-none w-1/3 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">Systolic Blood Pressure Status:</label>
+        <label for="sbp" class="break-all flex shadow rounded-lg appearance-none w-1/3 py-2 px-3 text-black-700 leading-tight focus:outline-none focus:shadow-outline">Systolic Blood Pressure Status:</label>
         <select id="sbp" class="break-all flex border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-2/3 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value={inputs.sbp_cat} 
 
 onChange={(e) => {
@@ -298,7 +292,7 @@ onChange={(e) => {
 </button>
             </div>
  
-<h1 class="flex mb-4 text-3xl font-extrabold text-gray-900 dark:text-white md:text-3xl lg:text-3xl " style={{padding: "25px"}}><span class="break-all flex text-transparent bg-clip-text bg-gradient-to-r to-pink-600 from-purple-400">RESULT: </span>{result===1?<span class="break-all flex text-red-600">DR POSITIVE</span>:(result===0)?<span class="break-all flex text-green-600">DR NEGATIVE</span>:""}</h1>
+<h1 class="flex mb-4 text-3xl font-extrabold text-gray-900 dark:text-white md:text-3xl lg:text-3xl " style={{padding: "25px"}}><span class="break-all flex text-transparent bg-clip-text bg-gradient-to-r to-pink-600 from-purple-600">RESULT: </span>{result===1?<span class="break-all flex text-red-600">DR POSITIVE</span>:(result===0)?<span class="break-all flex text-green-600">DR NEGATIVE</span>:""}</h1>
 
     </div>
   )
