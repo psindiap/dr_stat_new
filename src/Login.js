@@ -12,7 +12,7 @@ const Login = () => {
           
             <img src={Go}/>
 
-            <div className="auth__form-container_fields-content_button items-center">
+            <div className="auth__form-container_fields-content_button items-center bg-slate-300">
               <a href="https://ninth-bonito-377309.el.r.appspot.com/auth/google"><button className="center">
              Sign-in using Google</button></a>
             </div>
