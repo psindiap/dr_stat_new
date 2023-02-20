@@ -146,10 +146,42 @@ function Main() {
         hba1c: inputs.hba1c,
         fbs_cat_new: inputs.fbs_cat_new,
         sbp_cat: inputs.sbp_cat
+        
       })
     });
     const res = await response.json();
     setResult(res['prediction'][0]);
+  
+    const queryString = window.location.search;
+    // console.log(queryString);
+   
+    const urlParams = new URLSearchParams(queryString);
+    const jwt = urlParams.get('jwt');
+
+  const response2 = await fetch(`https://ninth-bonito-377309.el.r.appspot.com//db/insert`, {
+      method: 'POST',
+      headers: {
+        'token': `Bearer ${jwt}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        age: inputs.age,
+        gender: inputs.gender,
+        dm_dur_cat: inputs.dm_dur_cat,
+        insulin: inputs.insulin,
+        htn: inputs.htn,
+        bmi: inputs.bmi,
+        hba1c: inputs.hba1c,
+        fbs_cat_new: inputs.fbs_cat_new,
+        sbp_cat: inputs.sbp_cat,
+        pred: result
+      })
+    });
+
+
+    const res2 = await response2.json();
+    console.log(res2);
+    // setResult(res['prediction'][0]);
   };
 
   return (
