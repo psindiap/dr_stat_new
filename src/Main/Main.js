@@ -158,7 +158,7 @@ function Main() {
     const urlParams = new URLSearchParams(queryString);
     const jwt = urlParams.get('jwt');
 
-  const response2 = await fetch(`https://ninth-bonito-377309.el.r.appspot.com//db/insert`, {
+  const response2 = await fetch(`https://ninth-bonito-377309.el.r.appspot.com/db/insert`, {
       method: 'POST',
       headers: {
         'token': `Bearer ${jwt}`,
