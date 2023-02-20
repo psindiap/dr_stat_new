@@ -181,7 +181,7 @@ function Main() {
 
 
     const res2 = await response2.json();
-    console.log(res2);
+    console.log("RES2",res2);
     // setResult(res['prediction'][0]);
   };
 
