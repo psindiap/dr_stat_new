@@ -149,6 +149,7 @@ function Main() {
         
       })
     });
+
     const res = await response.json();
     setResult(res['prediction'][0]);
   
@@ -174,7 +175,7 @@ function Main() {
         hba1c: inputs.hba1c,
         fbs_cat_new: inputs.fbs_cat_new,
         sbp_cat: inputs.sbp_cat,
-        pred: result
+        pred: res['prediction'][0],
       })
     });
 
