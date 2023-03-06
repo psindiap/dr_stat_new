@@ -135,6 +135,8 @@ function Main() {
       return;
     }
 
+
+    console.log("Inputs: ", inputs);
     // console.log(JSON.stringify({
     //   age: inputs.age,
     //   gender: inputs.gender,
