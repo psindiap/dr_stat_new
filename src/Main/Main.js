@@ -117,10 +117,10 @@ function Main() {
     //   return;
     // }
 
-    // if (inputs.fbs_cat_new < 0 || inputs.fbs_cat_new > 3) {
-    //   alert("FBS Category should be between 0 and 3");
-    //   return;
-    // }
+    if (inputs.fbs < 20|| inputs.fbs > 3000) {
+      alert("Please enter a valid Fasting Blood Sugar value.");
+      return;
+    }
     if (Number.isNaN(parseInt(inputs.sbp_cat))) {
       alert("Please choose an option for SBP Category ");
       return;
