@@ -11,7 +11,7 @@ function Main() {
     hcm: "",
     wkg: "",
     hba1c: "",
-    fbs_cat_new: "",
+    fbs: "",
     sbp_cat: "",
   });
 
@@ -92,21 +92,26 @@ function Main() {
       return;
     }
 
-
     if (inputs.bmi < 10 || inputs.bmi > 60) {
       alert("BMI should be between 10 and 60");
       return;
     }
 
-    if (Number.isNaN(parseInt(inputs.hba1c))) {
-      alert("Please choose an option for HBA1C ");
+    // if (Number.isNaN(parseInt(inputs.hba1c))) {
+    //   alert("Please choose an option for HBA1C ");
+    //   return;
+    // }
+
+    // if (Number.isNaN(parseInt(inputs.fbs_cat_new))) {
+    //   alert("Please choose an option for FBS Category ");
+    //   return;
+    // }
+
+    if (Number.isNaN(parseInt(inputs.fbs))) {
+      alert("Please enter a valid Fasting Blood Sugar value.");
       return;
     }
 
-    if (Number.isNaN(parseInt(inputs.fbs_cat_new))) {
-      alert("Please choose an option for FBS Category ");
-      return;
-    }
     if (!Number.isInteger(parseFloat(inputs.fbs_cat_new))) {
       alert("FBS Category should be an Integer, not a Float.");
       return;
@@ -331,13 +336,17 @@ function Main() {
             value={inputs.wkg}
             onChange={(e) => {
               e.preventDefault();
-              setInputs({ ...inputs, wkg: e.target.value,bmi: (e.target.value)/((inputs.hcm/100)*(inputs.hcm/100))});
+              setInputs({
+                ...inputs,
+                wkg: e.target.value,
+                bmi: e.target.value / ((inputs.hcm / 100) * (inputs.hcm / 100)),
+              });
             }}
           />
         </div>
         <div className="flex w-5/6 space-x-1">
           <div class="break-all flex shadow rounded-lg appearance-none w-1/3 py-2 px-3 text-black-700 leading-tight focus:outline-none focus:shadow-outline">
-           Height (in cm):
+            Height (in cm):
           </div>
           <input
             class="break-all flex shadow rounded-lg appearance-none border rounded w-2/3 py-2 px-3 text-black-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -347,27 +356,51 @@ function Main() {
             value={inputs.hcm}
             onChange={(e) => {
               e.preventDefault();
-              setInputs({ ...inputs, hcm: e.target.value,
-              bmi: (inputs.wkg)/((e.target.value/100)*(e.target.value/100))});
-              
+              setInputs({
+                ...inputs,
+                hcm: e.target.value,
+                bmi:
+                  inputs.wkg /
+                  ((e.target.value / 100) * (e.target.value / 100)),
+              });
             }}
           />
         </div>
         <div className="flex w-5/6 space-x-1">
-  <div class="break-all flex shadow rounded-lg appearance-none w-1/3 py-2 px-3 text-black-700 leading-tight focus:outline-none focus:shadow-outline">
-    BMI:
-  </div>
-  <input
-    class="break-all flex shadow rounded-lg appearance-none border rounded w-2/3 py-2 px-3 text-black-700 leading-tight focus:outline-none focus:shadow-outline"
-    id="bmi"
-    type="text"
-    value={inputs.bmi}
-    placeholder="Calculated BMI appears here:"
-    disabled
-  />
-</div>
+          <div class="break-all flex shadow rounded-lg appearance-none w-1/3 py-2 px-3 text-black-700 leading-tight focus:outline-none focus:shadow-outline">
+            BMI:
+          </div>
+          <input
+            class="break-all flex shadow rounded-lg appearance-none border rounded w-2/3 py-2 px-3 text-black-700 leading-tight focus:outline-none focus:shadow-outline"
+            id="bmi"
+            type="text"
+            value={inputs.bmi}
+            placeholder="Calculated BMI appears here:"
+            disabled
+          />
+        </div>
 
         <div className="flex w-5/6 space-x-1">
+          <div class="break-all flex shadow rounded-lg appearance-none w-1/3 py-2 px-3 text-black-700 leading-tight focus:outline-none focus:shadow-outline">
+            Fasting Blood Sugar:
+          </div>
+          <input
+            class="break-all flex shadow rounded-lg appearance-none border rounded w-2/3 py-2 px-3 text-black-700 leading-tight focus:outline-none focus:shadow-outline"
+            id="fbs"
+            type="text"
+            placeholder="Enter Fasting Blood Sugar"
+            value={inputs.fbs}
+            onChange={(e) => {
+              e.preventDefault();
+              setInputs({
+                ...inputs,
+                fbs: e.target.value,
+              });
+            }}
+          />
+        </div>
+
+        {/* <div className="flex w-5/6 space-x-1">
           <label
             for="ghs"
             class="break-all flex shadow rounded-lg appearance-none w-1/3 py-2 px-3 text-black-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -388,9 +421,9 @@ function Main() {
             <option value="1">{"Pre-Diabetes (5.7% - 6.4%)"}</option>
             <option value="2">{"Diabetes (>=6.5%)"}</option>
           </select>
-        </div>
+        </div> */}
 
-        <div className="flex w-5/6 space-x-1">
+        {/* <div className="flex w-5/6 space-x-1">
           <label
             for="fbs"
             class="break-all flex shadow rounded-lg appearance-none w-1/3 py-2 px-3 text-black-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -411,7 +444,7 @@ function Main() {
             <option value="1">Pre-Diabetes</option>
             <option value="2">Diabetes</option>
           </select>
-        </div>
+        </div> */}
 
         <div className="flex w-5/6 space-x-1">
           <label
