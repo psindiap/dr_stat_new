@@ -88,7 +88,7 @@ function Main() {
     }
 
     if (Number.isNaN(parseInt(inputs.wkg))) {
-      alert("Pleaseenter a valid weight (in kg) ");
+      alert("Please enter a valid weight (in kg) ");
       return;
     }
 
@@ -112,15 +112,15 @@ function Main() {
       return;
     }
 
-    if (!Number.isInteger(parseFloat(inputs.fbs_cat_new))) {
-      alert("FBS Category should be an Integer, not a Float.");
-      return;
-    }
+    // if (!Number.isInteger(parseFloat(inputs.fbs_cat_new))) {
+    //   alert("FBS Category should be an Integer, not a Float.");
+    //   return;
+    // }
 
-    if (inputs.fbs_cat_new < 0 || inputs.fbs_cat_new > 3) {
-      alert("FBS Category should be between 0 and 3");
-      return;
-    }
+    // if (inputs.fbs_cat_new < 0 || inputs.fbs_cat_new > 3) {
+    //   alert("FBS Category should be between 0 and 3");
+    //   return;
+    // }
     if (Number.isNaN(parseInt(inputs.sbp_cat))) {
       alert("Please choose an option for SBP Category ");
       return;
@@ -129,7 +129,7 @@ function Main() {
       alert("SBP Category should be an Integer, not a Float.");
       return;
     }
-
+// 
     if (inputs.sbp_cat < 0 || inputs.sbp_cat > 5) {
       alert("SBP Category should be between 0 and 5");
       return;
