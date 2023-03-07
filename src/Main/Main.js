@@ -161,9 +161,8 @@ function Main() {
           insulin: inputs.insulin,
           htn: inputs.htn,
           bmi: inputs.bmi,
-          hba1c: inputs.hba1c,
-          fbs_cat_new: inputs.fbs_cat_new,
-          sbp_cat: inputs.sbp_cat,
+          fbs: inputs.fbs,
+          sbp_cat: inputs.sbp_cat
         }),
       }
     );
@@ -187,14 +186,13 @@ function Main() {
         },
         body: JSON.stringify({
           age: inputs.age,
-          gender: inputs.gender,
-          dm_dur_cat: inputs.dm_dur_cat,
-          insulin: inputs.insulin,
-          htn: inputs.htn,
-          bmi: inputs.bmi,
-          hba1c: inputs.hba1c,
-          fbs_cat_new: inputs.fbs_cat_new,
-          sbp_cat: inputs.sbp_cat,
+      gender: inputs.gender,
+      dm_dur_cat: inputs.dm_dur_cat,
+      insulin: inputs.insulin,
+      htn: inputs.htn,
+      bmi: inputs.bmi,
+      fbs: inputs.fbs,
+      sbp_cat: inputs.sbp_cat,
           pred: res["prediction"][0],
         }),
       }
